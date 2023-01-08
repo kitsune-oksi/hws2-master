@@ -52,5 +52,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "font-family-no-duplicate-names": [
+        true,
+        {
+          "ignoreFontFamilyNames": [
+            "monospace"
+          ]
+        }
+      ]
+    }
   }
 }

@@ -1,11 +1,21 @@
 .App {
-    --header_height: 60px;
+    /*--header_height: 60px;*/
+    margin: auto;
+    width: 1045px;
 }
 
 .hw {
-
+    border-bottom: 1px solid #D9D9D9;
+    padding: 24px 70px;
 }
 
 .hwTitle {
-
+    height: 60px;
+    border-bottom: 1px solid #D9D9D9;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 70px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
 }
