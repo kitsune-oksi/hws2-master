@@ -17,15 +17,17 @@ export const pureAddUser = (name: string, setError: (error: string) => void, set
     setError('Ошибка! Введите имя!')
 }
 
-export const pureOnBlur = (name: string, setError: (error: string) => void) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: (error: string) => void, ref?:any) => { // если имя пустое - показать ошибку
     if (!name.trim()) {
         setError('Ошибка! Введите имя!')
+        ref.current.blur();
     }
 }
 
-export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: ()=>void) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: ()=>void, ref?: any) => { // если нажата кнопка Enter - добавить
     if (e.key === 'Enter') {
         addUser()
+        ref.current.blur();
     }
 }
 
@@ -41,6 +43,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<string>('')
 
+    const ref = React.createRef<HTMLTextAreaElement>();
+
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value)
 
@@ -51,11 +55,11 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const onBlur = () => {
-        pureOnBlur(name, setError)
+        pureOnBlur(name, setError, ref)
     }
 
     const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
-        pureOnEnter(e, addUser)
+        pureOnEnter(e, addUser, ref)
     }
 
     const totalUsers = users.length
@@ -63,6 +67,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
 
     return (
         <Greeting
+            ref={ref}
             name={name}
             setNameCallback={setNameCallback}
             addUser={addUser}

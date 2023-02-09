@@ -13,8 +13,10 @@ type GreetingPropsType = {
 }
 
 // презентационная компонента (для верстальщика)
-const Greeting: React.FC<GreetingPropsType> = (
-    {
+const Greeting= React.forwardRef
+((props: GreetingPropsType, ref: any) => {
+
+    const {
         name,
         setNameCallback,
         addUser,
@@ -23,9 +25,9 @@ const Greeting: React.FC<GreetingPropsType> = (
         error,
         totalUsers,
         lastUserName,
-    } // деструктуризация пропсов
-) => {
+    } = props;
     const inputClass = error ? s.errorInput + ' ' + s.input : s.input
+
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
@@ -39,6 +41,7 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.inputAndButtonContainer}>
                 <div>
                     <input
+                        ref={ref}
                         id={'hw3-input'}
                         value={name}
                         onChange={setNameCallback}
@@ -68,6 +71,6 @@ const Greeting: React.FC<GreetingPropsType> = (
             )}
         </div>
     )
-}
+})
 
 export default Greeting

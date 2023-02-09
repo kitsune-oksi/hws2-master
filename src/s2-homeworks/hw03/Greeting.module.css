@@ -51,6 +51,9 @@
 .button:disabled {
     opacity: 50%;
 }
+.button:disabled:hover {
+    cursor: not-allowed;
+}
 
 .text {
     font-size: 14px;
