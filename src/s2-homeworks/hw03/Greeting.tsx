@@ -13,7 +13,7 @@ type GreetingPropsType = {
 }
 
 // презентационная компонента (для верстальщика)
-const Greeting= React.forwardRef
+const Greeting = React.forwardRef
 ((props: GreetingPropsType, ref: any) => {
 
     const {

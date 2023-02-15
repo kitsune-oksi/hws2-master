@@ -43,7 +43,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<string>('')
 
-    const ref = React.createRef<HTMLTextAreaElement>();
+    const refHW3 = React.createRef<HTMLTextAreaElement>();
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value)
@@ -55,11 +55,11 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const onBlur = () => {
-        pureOnBlur(name, setError, ref)
+        pureOnBlur(name, setError, refHW3)
     }
 
     const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
-        pureOnEnter(e, addUser, ref)
+        pureOnEnter(e, addUser, refHW3)
     }
 
     const totalUsers = users.length
@@ -67,7 +67,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
 
     return (
         <Greeting
-            ref={ref}
+            ref={refHW3}
             name={name}
             setNameCallback={setNameCallback}
             addUser={addUser}

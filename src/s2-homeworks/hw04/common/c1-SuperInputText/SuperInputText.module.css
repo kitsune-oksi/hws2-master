@@ -2,19 +2,41 @@
 }
 
 .input {
+    width: 372px;
+    height: 36px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 12px;
+    padding: 8px 12px;
 }
 
 .inputWrapper {
+    display: flex;
+    flex-direction: column-reverse;
 }
+
+.inputWrapper span {
+    margin-bottom: 5px;
+}
+
 
 .superInput {
 }
 
 .errorInput {
+    border-color: #CC1439;
 }
 
 .errorInput:focus {
+    border-color: #CC1439;
 }
 
 .error {
+    font-weight: 400;
+    font-size: 10px;
+    color: #CC1439;
+    height: 10px;
 }
