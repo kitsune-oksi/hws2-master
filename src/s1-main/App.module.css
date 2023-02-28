@@ -1,7 +1,13 @@
 .App {
     /*--header_height: 60px;*/
     margin: auto;
+
+}
+
+.content {
     width: 1045px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hw {
