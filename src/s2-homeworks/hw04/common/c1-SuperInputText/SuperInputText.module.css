@@ -14,8 +14,7 @@
 }
 
 .inputWrapper {
-    display: flex;
-    flex-direction: column-reverse;
+
 }
 
 .inputWrapper span {

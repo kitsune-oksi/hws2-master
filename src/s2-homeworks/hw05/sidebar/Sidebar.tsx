@@ -11,6 +11,7 @@ type PropsType = {
 
 const activeLinkStyle = ({isActive}: {isActive: boolean}) => isActive ? s.active : ''
 
+
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
     const sidebarClass = `${s.sidebar} ${open ? s.open : ''}`
     return (
