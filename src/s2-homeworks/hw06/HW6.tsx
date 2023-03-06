@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,KeyboardEvent } from 'react'
 import SuperEditableSpan from './common/c4-SuperEditableSpan/SuperEditableSpan'
 import { restoreState, saveState } from './localStorage/localStorage'
 import s2 from '../../s1-main/App.module.css'
@@ -19,7 +19,13 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
+        setValue(restoreState<string>('hw6-editable-span-value', value))
+    }
 
+    const onEnterHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+          save()
+      }
     }
 
     return (
@@ -33,6 +39,7 @@ const HW6 = () => {
                         id={'hw6-spanable-input'}
                         value={value}
                         onChangeText={setValue}
+                        onKeyDown={onEnterHandler}
                         spanProps={{
                             id: 'hw6-editable-span',
                             defaultText: 'enter text...',
@@ -41,12 +48,12 @@ const HW6 = () => {
                 </div>
 
                 <div className={s.buttonsContainer}>
-                    <SuperButton id={'hw6-save'} onClick={save}>
+                    <SuperButton id={'hw6-save'} onMouseDown={save}>
                         Save to ls
                     </SuperButton>
                     <SuperButton
                         id={'hw6-restore'}
-                        onClick={restore}
+                        onMouseDown={restore}
                         xType={'secondary'}
                     >
                         Get from ls
