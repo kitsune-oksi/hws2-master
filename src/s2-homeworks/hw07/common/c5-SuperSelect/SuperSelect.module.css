@@ -1,7 +1,11 @@
 .select {
+    width: 160px;
+    font: inherit;
+    padding: 3px;
 }
 
 .select:focus {
+    cursor: pointer;
 }
 
 
