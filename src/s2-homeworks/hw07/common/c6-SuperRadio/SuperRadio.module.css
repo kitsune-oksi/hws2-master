@@ -1,39 +1,39 @@
 .radio {
     cursor: pointer;
-    margin-right: 10px;
-    /*position: relative;*/
-    /*height: 22px;*/
-    /*width: 22px;*/
-    /*-webkit-appearance: none;*/
-    /*-moz-appearance: none;*/
-    /*appearance: none;*/
-    /*outline: none;*/
+    margin-right: 13px;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
 }
 
 .radio::before {
-    /*content: '';*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*width: 22px;*/
-    /*height: 22px;*/
-    /*border-radius: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-    /*background-color: white;*/
-    /*border: 2px solid black;*/
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
 }
 
 
-.radio:checked::before {
-    /*content: '';*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*width: 15px;*/
-    /*height: 15px;*/
-    /*border-radius: 50%;*/
-    /*background-color: black;*/
-    /*transform: translate(-50%, -50%);*/
+.radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
     /*visibility: visible;*/
 }
 
