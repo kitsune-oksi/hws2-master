@@ -3,36 +3,80 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
 
+type DateType = {
+    [key: string]: string
+}
+
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
     // for autotests // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
     const [show, setShow] = useState<boolean>(false)
+    const [timerOn, setTimerOn] = useState<boolean>(false)
+
+    const day: DateType = {
+        '0': 'Sunday',
+        '1': 'Monday',
+        '2': 'Tuesday',
+        '3': 'Wednesday',
+        '4': 'Thursday',
+        '5': 'Friday',
+        '6': 'Saturday'
+    }
+
+    const month: DateType = {
+        '0': 'January',
+        '1': 'February',
+        '2': 'March',
+        '3': 'April',
+        '4': 'May',
+        '5': 'June',
+        '6': 'July',
+        '7': 'August',
+        '8': 'September',
+        '9': 'October',
+        '10': 'November',
+        '11': 'December'
+    }
 
     const start = () => {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
-
+        let intervalId = setInterval(()=>setDate(new Date(restoreState('hw9-date', Date.now()))),1000);
+        setTimerId(+intervalId);
+        setTimerOn(true)
     }
 
     const stop = () => {
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
-
+        clearInterval(timerId);
+        setTimerOn(false)
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
-
+        setShow(true)
     }
     const onMouseLeave = () => { // пишут студенты // спрятать дату если мышка не наведена
-
+        setShow(false)
     }
 
-    const stringTime = 'date->time' || <br/> // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
-    const stringDate = 'date->date' || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
+    const getDateFormat = (first: number, second: number, third: number, separate: string) => {
+        const compare = (arg: number) => {
+            return arg < 10 ? '0' + arg.toString() : arg
+        }
+        return `${compare(first)}${separate}${compare(second)}${separate}${compare(third)}`
+    }
+
+    let stringTime = getDateFormat(date.getHours(), date.getMinutes(), date.getSeconds(), ':') // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+
+    const stringDate = getDateFormat(date.getDate(), date.getMonth(), date.getFullYear(), '.') // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
-    const stringDay = 'date->day' || <br/> // пишут студенты
-    const stringMonth = 'date->month' || <br/> // пишут студенты
+
+    let stringDay = day[date.getDay()];
+    // пишут студенты
+
+    let stringMonth = month[date.getMonth()] // пишут студенты
 
     return (
         <div className={s.clock}>
@@ -66,17 +110,17 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={timerOn} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
-                    start
+                    Start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={!timerOn} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
-                    stop
+                    Stop
                 </SuperButton>
             </div>
         </div>
