@@ -1,3 +1,8 @@
 import s from './Loader.module.css'
+import loaderPNG from './loader.png'
 
-export const Loader = () => <div className={s.loader}/>
+export const Loader = () => {
+    return <div className={s.loader}>
+        <img src={loaderPNG} alt='loading'/>
+    </div>
+}

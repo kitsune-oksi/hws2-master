@@ -1,3 +1,10 @@
-.loader {
+.loader img {
     /*свг и/или анимация*/
+    width: 100px;
+    animation: spin 1500ms linear 0s infinite;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }

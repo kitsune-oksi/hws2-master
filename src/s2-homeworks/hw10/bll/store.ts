@@ -1,13 +1,14 @@
 import { loadingReducer } from './loadingReducer'
 import { combineReducers, legacy_createStore } from 'redux'
 import { themeReducer } from '../../hw12/bll/themeReducer'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 const reducers = combineReducers({
     loading: loadingReducer, // hw10
     theme: themeReducer, // hw12
 })
 
-const store = legacy_createStore(reducers)
+const store = legacy_createStore(reducers, composeWithDevTools())
 
 export default store
 
