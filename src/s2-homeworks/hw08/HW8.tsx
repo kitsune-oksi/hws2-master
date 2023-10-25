@@ -11,13 +11,13 @@ import User from './User'
 * 3 - сделать стили в соответствии с дизайном
 * */
 
-export type UserType = {
+export type TUser = {
     _id: number
     name: string
     age: number
 }
 
-const initialPeople: UserType[] = [
+const initialPeople: TUser[] = [
     // студенты могут поменять имя/возраст/количество объектов, _id должны быть целочисленные
     {_id: 0, name: 'Кот', age: 3},
     {_id: 1, name: 'Александр', age: 66},
@@ -28,10 +28,10 @@ const initialPeople: UserType[] = [
 ]
 
 const HW8 = () => {
-    const [people, setPeople] = useState<UserType[]>(initialPeople)
+    const [people, setPeople] = useState<TUser[]>(initialPeople)
     const [currentSort, setCurrentSort] = useState('')
 
-    const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
+    const finalPeople = people.map((u: TUser) => <User key={u._id} u={u}/>)
 
     const sortUp = () => {
         setPeople(

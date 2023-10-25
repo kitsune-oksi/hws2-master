@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import {DataType, send} from './MockData'
+import {TData, send} from './MockData'
 import loadingImage from './images/loading.png'
 
 /*
@@ -13,7 +13,7 @@ import loadingImage from './images/loading.png'
 
 const HW13 = () => {
 
-    const [data, setData] = useState<DataType>({
+    const [data, setData] = useState<TData>({
         code: '',
         text: '',
         info: '',

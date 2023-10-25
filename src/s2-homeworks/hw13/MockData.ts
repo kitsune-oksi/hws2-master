@@ -3,18 +3,18 @@ import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
 
-type CodesDataType = {
-    [key: string]: DataType
+type CodesData = {
+    [key: string]: TData
 }
-export type DataType = {
+export type TData = {
     code: string,
     text: string,
     info: string,
     image: string
 }
-type CodesType = '200' | '400' | '500' | 'error'
+type Codes = '200' | '400' | '500' | 'error'
 
-const codes: CodesDataType = {
+const codes: CodesData = {
     '200': {
         code: 'Код 200!',
         text: '...всё ок)',
@@ -41,7 +41,7 @@ const codes: CodesDataType = {
     }
 }
 
-export const send = (param: CodesType): Promise<DataType> => new Promise((resolve)=>{
+export const send = (param: Codes): Promise<TData> => new Promise((resolve)=>{
     setTimeout(() => {
         return resolve(codes[param])
     }, 1000)

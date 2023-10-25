@@ -1,15 +1,15 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react'
+import React, {ButtonHTMLAttributes, DetailedHTMLProps, FC} from 'react'
 import s from './SuperButton.module.css'
 
 // тип пропсов обычной кнопки, children в котором храниться название кнопки там уже описан
-type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,
+type DefaultButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement>
 
-type SuperButtonPropsType = DefaultButtonPropsType & {
+type SuperButtonProps = DefaultButtonProps & {
     xType?: string
 }
 
-const SuperButton: React.FC<SuperButtonPropsType> = (
+const SuperButton: FC<SuperButtonProps> = (
     {
         xType,
         className,

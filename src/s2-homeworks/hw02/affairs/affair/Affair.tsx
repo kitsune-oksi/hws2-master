@@ -1,39 +1,40 @@
-import React from 'react'
-import {AffairType} from '../../HW2'
+import React, { FC } from 'react'
+import {TAffair} from '../../HW2'
 import s from './Affair.module.css'
 import s2 from '../Affairs.module.css'
 
-type AffairPropsType = {
+type Props = {
     // key не нужно типизировать
-    affair: AffairType
+    affair: TAffair
     deleteAffairCallback: (_id: number) => void
 }
 
-function Affair(props: AffairPropsType) {
+const Affair: FC<Props> = ({affair, deleteAffairCallback}) => {
+    const {_id, priority} = affair;
     const deleteCallback = () => {
-        props.deleteAffairCallback(props.affair._id)
+        deleteAffairCallback(affair._id)
     }
 
-    const nameClass = s.name + ' ' + s2[props.affair.priority]
-    const buttonClass = s.closeButton + ' ' + s2[props.affair.priority]
-    const affairClass = s.affair + ' ' + s2[props.affair.priority]
+    const nameClass = s.name + ' ' + s2[priority]
+    const buttonClass = s.closeButton + ' ' + s2[priority]
+    const affairClass = s.affair + ' ' + s2[priority]
 
     return (
         <div
-            id={'hw2-affair-' + props.affair._id}
+            id={'hw2-affair-' + _id}
             className={affairClass}
         >
-            <div id={'hw2-name-' + props.affair._id} className={nameClass}>
+            <div id={'hw2-name-' + _id} className={nameClass}>
                 {/*создаёт студент*/}
-                <span>{props.affair.name}</span>
+                <span>{affair.name}</span>
                 {/**/}
             </div>
-            <div id={'hw2-priority-' + props.affair._id} hidden>
-                {props.affair.priority}
+            <div id={'hw2-priority-' + _id} hidden>
+                {affair.priority}
             </div>
 
             <button
-                id={'hw2-button-delete-' + props.affair._id}
+                id={'hw2-button-delete-' + _id}
                 className={buttonClass}
                 onClick={deleteCallback}
             >

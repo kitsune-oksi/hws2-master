@@ -3,7 +3,7 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
 
-type DateType = {
+type TDate = {
     [key: string]: string
 }
 
@@ -14,7 +14,7 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
     const [timerOn, setTimerOn] = useState<boolean>(false)
 
-    const day: DateType = {
+    const day: TDate = {
         '0': 'Sunday',
         '1': 'Monday',
         '2': 'Tuesday',
@@ -24,7 +24,7 @@ function Clock() {
         '6': 'Saturday'
     }
 
-    const month: DateType = {
+    const month: TDate = {
         '0': 'January',
         '1': 'February',
         '2': 'March',

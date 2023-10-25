@@ -4,11 +4,11 @@ import s from './Header.module.css'
 import {useLocation} from 'react-router-dom'
 import {PATH} from '../Pages'
 
-type PropsType = {
+type Props = {
     handleOpen: () => void
 }
 
-export const Header: FC<PropsType> = ({handleOpen}) => {
+export const Header: FC<Props> = ({handleOpen}) => {
     // hw5-menu изначально отсутствует, при нажатии на бургер - появляется, при повторном нажатии исчезает
     const location = useLocation()
     const currentPath = location.pathname

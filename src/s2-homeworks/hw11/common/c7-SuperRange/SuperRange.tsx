@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {FC} from 'react'
 import {Slider, SliderProps} from '@mui/material'
 
-const SuperRange: React.FC<SliderProps> = (props) => {
+const SuperRange: FC<SliderProps> = (props) => {
     return (
         <Slider
             sx={{ // стили для слайдера // пишет студент

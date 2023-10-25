@@ -1,8 +1,8 @@
 import React from 'react'
 import { homeWorkReducer } from '../homeWorkReducer'
-import { UserType } from '../../HW8'
+import { TUser } from '../../HW8'
 
-let initialState: UserType[]
+let initialState: TUser[]
 
 beforeEach(() => {
     initialState = [
