@@ -12,7 +12,6 @@ import loadingImage from './images/loading.png'
 * */
 
 const HW13 = () => {
-
     const [data, setData] = useState<TData>({
         code: '',
         text: '',
