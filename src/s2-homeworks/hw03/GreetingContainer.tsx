@@ -1,9 +1,9 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
+import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
-import {UserType} from './HW3'
+import {User} from './HW3'
 
-type GreetingContainerPropsType = {
-    users: UserType[]
+type Props = {
+    users: User[]
     addUserCallback: (name: string) => void
 }
 
@@ -35,10 +35,7 @@ export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: ()=>voi
 // function GreetingContainer(props: GreetingPropsType) {
 
 // более современный и удобный для про :)
-const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
-                                                                     users,
-                                                                     addUserCallback,
-                                                                 }) => {
+const GreetingContainer: FC<Props> = ({users, addUserCallback}) => {
     // деструктуризация пропсов
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<string>('')

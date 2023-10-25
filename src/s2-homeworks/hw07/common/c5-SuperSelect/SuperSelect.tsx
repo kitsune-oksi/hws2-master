@@ -2,20 +2,21 @@ import React, {
     SelectHTMLAttributes,
     DetailedHTMLProps,
     ChangeEvent,
+    FC,
 } from 'react'
 import s from './SuperSelect.module.css'
 
-type DefaultSelectPropsType = DetailedHTMLProps<
+type DefaultSelectProps = DetailedHTMLProps<
     SelectHTMLAttributes<HTMLSelectElement>,
     HTMLSelectElement
 >
 
-type SuperSelectPropsType = DefaultSelectPropsType & {
+type SuperSelectProps = DefaultSelectProps & {
     options?: any[]
     onChangeOption?: (option: any) => void
 }
 
-const SuperSelect: React.FC<SuperSelectPropsType> = ({
+const SuperSelect: FC<SuperSelectProps> = ({
     options,
     className,
     onChange,

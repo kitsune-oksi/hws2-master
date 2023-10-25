@@ -4,7 +4,7 @@ import s from './Sidebar.module.css'
 import {PATH} from '../Pages'
 import closeIcon from './closeOutline.svg'
 
-type PropsType = {
+type Props = {
     open: boolean
     handleClose: () => void
 }
@@ -12,7 +12,7 @@ type PropsType = {
 const activeLinkStyle = ({isActive}: {isActive: boolean}) => isActive ? s.active : ''
 
 
-export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
+export const Sidebar: FC<Props> = ({open, handleClose}) => {
     const sidebarClass = `${s.sidebar} ${open ? s.open : ''}`
     return (
         <>

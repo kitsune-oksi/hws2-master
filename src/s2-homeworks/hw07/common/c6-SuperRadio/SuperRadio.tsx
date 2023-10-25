@@ -3,27 +3,28 @@ import React, {
     InputHTMLAttributes,
     DetailedHTMLProps,
     HTMLAttributes,
+    FC,
 } from 'react'
 import s from './SuperRadio.module.css'
 
-type DefaultRadioPropsType = DetailedHTMLProps<
+type DefaultRadioProps = DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
 >
 // тип пропсов обычного спана
-type DefaultSpanPropsType = DetailedHTMLProps<
+type DefaultSpanProps = DetailedHTMLProps<
     HTMLAttributes<HTMLSpanElement>,
     HTMLSpanElement
 >
 
-type SuperRadioPropsType = Omit<DefaultRadioPropsType, 'type'> & {
+type SuperRadioProps = Omit<DefaultRadioProps, 'type'> & {
     options?: any[]
     onChangeOption?: (option: any) => void
 
-    spanProps?: DefaultSpanPropsType // пропсы для спана
+    spanProps?: DefaultSpanProps // пропсы для спана
 }
 
-const SuperRadio: React.FC<SuperRadioPropsType> = ({
+const SuperRadio: FC<SuperRadioProps> = ({
     id,
     name,
     className,

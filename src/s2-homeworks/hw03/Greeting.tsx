@@ -1,7 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
 
-type GreetingPropsType = {
+type Props = {
     name: string
     setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void
     addUser: () => void
@@ -14,7 +14,7 @@ type GreetingPropsType = {
 
 // презентационная компонента (для верстальщика)
 const Greeting = React.forwardRef
-((props: GreetingPropsType, ref: any) => {
+((props: Props, ref: any) => {
 
     const {
         name,
